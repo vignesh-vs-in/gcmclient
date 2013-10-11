@@ -46,7 +46,7 @@ public class GCMDemoMainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
         mDisplay = (TextView) findViewById(R.id.display);
-        mTextDisplay = (EditText)findViewById(R.id.display2);
+        mTextDisplay = (EditText)findViewById(R.id.textarea);
         
         context = getApplicationContext();
 
@@ -221,6 +221,7 @@ public class GCMDemoMainActivity extends Activity {
     
     
     public void onClick(final View view) {
+    	//Django Push doesnt support CCS yet!!!
         if (view == findViewById(R.id.send)) {
             new AsyncTask<Void,Void,String>() {
                 @Override
@@ -247,8 +248,7 @@ public class GCMDemoMainActivity extends Activity {
             }.execute(null, null, null);
         } else if (view == findViewById(R.id.clear)) {
             mDisplay.setText("");
-        } else if (view == findViewById(R.id.register)) {
-        	registerInBackground();
-        }
+            mTextDisplay.setText("");
+        } 
     }
 }
